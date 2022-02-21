@@ -10,7 +10,7 @@ namespace SportsApp.Models
         [StringLength(10, MinimumLength = 3)]
         public string? Code { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
+        [StringLength(60, MinimumLength = 3)][Required]
         public string? Name { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
@@ -26,13 +26,16 @@ namespace SportsApp.Models
         public int Id { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
+        [Display(Name = "Technician Name")]
         public string? TechnicianName { get; set; }
 
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+        [Display(Name = "Technician Email")]
         public string? TechnicianEmail { get; set; }
 
-        [RegularExpression("[0-9]"), StringLength(10)]
-        public int? TechnicianPhone { get; set; }
+        [/*RegularExpression("[0-9]"),*/ StringLength(10)]
+        [Display(Name = "Technician Phone")]
+        public int TechnicianPhone { get; set; }
     }
 
     public class CustomerManager
@@ -49,7 +52,7 @@ namespace SportsApp.Models
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string? CustomerEmail { get; set; }
 
-        [RegularExpression("[0-9]"), StringLength(10)]
+        /*[RegularExpression("[0-9]"), StringLength(10)]*/
         public int? CustomerPhone { get; set; }
     }
 

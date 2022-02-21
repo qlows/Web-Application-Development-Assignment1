@@ -49,7 +49,6 @@ namespace SportsApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CustomerPhone")
-                        .HasMaxLength(10)
                         .HasColumnType("int");
 
                     b.Property<string>("CustomerPostal")
@@ -104,6 +103,7 @@ namespace SportsApp.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
@@ -133,7 +133,7 @@ namespace SportsApp.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<int?>("TechnicianPhone")
+                    b.Property<int>("TechnicianPhone")
                         .HasMaxLength(10)
                         .HasColumnType("int");
 

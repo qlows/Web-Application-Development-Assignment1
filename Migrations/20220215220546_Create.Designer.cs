@@ -12,8 +12,8 @@ using SportsApp.Data;
 namespace SportsApp.Migrations
 {
     [DbContext(typeof(SportsAppContext))]
-    [Migration("20220214015610_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220215220546_Create")]
+    partial class Create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,6 @@ namespace SportsApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CustomerPhone")
-                        .HasMaxLength(10)
                         .HasColumnType("int");
 
                     b.Property<string>("CustomerPostal")
@@ -106,6 +105,7 @@ namespace SportsApp.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
@@ -135,7 +135,7 @@ namespace SportsApp.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<int?>("TechnicianPhone")
+                    b.Property<int>("TechnicianPhone")
                         .HasMaxLength(10)
                         .HasColumnType("int");
 
