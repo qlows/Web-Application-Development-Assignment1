@@ -8,6 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SportsAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SportsAppContext")));
 
+builder.Services.AddRouting(options =>
+    {
+        options.AppendTrailingSlash = true;
+        options.LowercaseUrls = true;
+    }
+);
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
